@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th= "http://www.thymeleaf.org" th:replace ="base::layout(~{::section})">
+<head>
+<meta charset= "UTF-8">
+<title> This is Sign Up page</title>title>
+</head>
+<body>
+<section >
+	<!-- row contain 12 grid in column in html -->
+	<div class="container">
+	<div class="col-md-8 offset-md-2" >
+	<div class="mycard">
+			<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+ 		 <p th:text="${session.message.content}"></p>
+ 		 <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div> 
+		<h1 class="text-center">Register Here !!</h1>
+		<form action="" th:action="@{/do_register}" method= "post" th:object="${customer}">
+		<!-- name field -->
+		 <div class="form-group">
+   			 <label for="name_field">Your Name</label>
+   			 <input 
+   			 name="name"
+   			 type="text" class="form-control" id="name_field"  placeholder="Enter your name" required
+   			
+   			 />   			 
+  		</div>
+  		
+  			<!-- email field -->
+		  <div class="form-group">
+   				 <label for="email_field">Email address</label>
+   				 <input
+   				 name="email"
+   				  type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email" required 
+   				
+   				 />
+    			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+ 			 </div>
+ 			 
+ 			 	<!-- password field -->
+ 			 <div class="form-group">
+   				 <label for="exampleInputPassword1">Password</label>
+   				 <input name="password"
+   				 type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  				</div>
+			
+			<!-- BANK Name field -->
+			<div>
+				<select 
+				name= "bankname"
+				class="form-control" required>
+  			<option>State Bank of India</option> 
+  			<option>Axis Bank</option>
+  			<option>Punjab National Bank</option>
+  			<option>Canara Bank</option>
+			</select>
+			</div>
+			
+			<div class ="form-group form-check text-center" style="padding-top: 10px;">
+			<input type= "checkbox"
+			name= "agreement"
+			class="form-check-input"
+			id= "agreement"/>
+			<label for="agreement">I accept all terms and conditions</label>
+			
+			</div>
+			
+			
+			<div class="container text-center" >
+			<button type="submit" class="btn btn-primary btn-block">
+			Submit 
+			</button>
+			<button type="reset" class="btn btn-warning btn-block">
+			Reset 
+			</button>
+			</div> 
+		</form>
+		
+	</div>
+
+	</div>
+	</div>
+	
+</section>
+</body>
+<html>

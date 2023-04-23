@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th= "http://www.thymeleaf.org" th:replace ="normal/base::layout(~{::section})">
+<head>
+<meta charset= "UTF-8">
+<title> User Dashboard Page</title>title>
+</head>
+<body>
+<section >
+<div class="container">
+	<div class="col-md-8 offset-md-2" >
+	<div class="mycard ">
+	<h1>Welcome <span th:text="${customer.getName()}"></span></h1>
+	<h1>Your Saving Account Balance is <span th:text="${customer.getSavingaccbalance()}"></span></h1>
+	<h1>Your Current Account Balance is <span th:text="${customer.getCurrentaccbalance()}"></span></h1>
+	
+	<form action="" th:action="@{'/do_transaction/' + ${customer.getId()}}" method= "post" >
+	
+			<button type= "submit" class="btn btn-primary btn-block" >
+			Send to self.
+			</button>
+			<button type= "submit" class="btn btn-warning btn-block" >
+			Send to other Accounts.
+			</button>
+			</div> 
+			</form>
+	</div>
+	
+	
+	</div>
+	</div>	
+	
+	
+	
+</section>
+</body>
+</html> 
